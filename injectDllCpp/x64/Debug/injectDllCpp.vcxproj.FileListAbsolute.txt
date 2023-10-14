@@ -1,0 +1,3 @@
+C:\Users\tobal\source\repos\injectDllCpp\injectDllCpp\x64\Debug\injectDllCpp.vcxproj.AssemblyReference.cache
+C:\Users\tobal\source\repos\injectDllCpp\injectDllCpp\x64\Debug\injectDllCpp.Form1.resources
+C:\Users\tobal\source\repos\injectDllCpp\injectDllCpp\x64\Debug\injectDllCpp.vcxproj.GenerateResource.cache
