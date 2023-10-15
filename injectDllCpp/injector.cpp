@@ -9,10 +9,7 @@
 
 char* WCharToChar(const wchar_t* wideString) {
     int len = WideCharToMultiByte(CP_ACP, 0, wideString, -1, NULL, 0, NULL, NULL);
-    if (len == 0) {
-        // Handle the error, e.g., return nullptr or throw an exception
-        return nullptr;
-    }
+    if (len == 0) { return nullptr; }
     // Allocate a buffer for the narrow character string
     char* narrowString = new char[len];
     // Convert the wide character string to narrow character
@@ -38,33 +35,12 @@ DWORD getProcessIDByName(const char* processName) {
     return pid;
 } 
 //
-//
-std::wstring convertInt2wstring(int IntVal) {
-    std::wstring wideString = std::to_wstring(IntVal);
-    return wideString.c_str();
-}
-//
 // 
-
-
-
-//
-//
-//
-// 
-//
-//
-//
-
-
 /*char _evilDLL[] = "C:\\Users\\tobal\\source\\repos\\Dll1\\x64\\Debug\\Dll1.dll";*/
 const wchar_t*  processNameEXE =  L"NSUNS4.exe";
 int _pidd;
 int injectDllActivate() {
-    if (FindProcessId(processNameEXE) == 0){
-        return -112;
-    }
-
+    if (FindProcessId(processNameEXE) == 0){return -112;}
     return 0;
     /*
     HANDLE ph; // process handle
@@ -101,10 +77,9 @@ int injectDllActivate() {
     rt = CreateRemoteThread(ph, NULL, 0, (LPTHREAD_START_ROUTINE)lb, rb, 0, NULL);
     CloseHandle(ph);
 
-    listenforKey('w');
+    listenforKey();
     return 0;
     */
-
 }
 
 
@@ -117,6 +92,8 @@ int injectDllActivate() {
 //
 bool hackIsActivated;
 HHOOK hKeyboardHook;
+wchar_t* _appnameExe_input = L"NSUNS4.exe";
+int _baseAddress = 0x0161C940;
 LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
     if (nCode >= 0) {
         if (wParam == WM_KEYDOWN) {
@@ -129,14 +106,27 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
             }
             else {
                 if (kb->vkCode == '1'){
-                    //righ ninja tool
-                    writeToMemory4(L"NSUNS4.exe", 0x0161C940, { 0x40,0x10,0x0,0x0,0x7C },387);
+                    //right ninja tool
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x7C },97);
+                    //top ninja tool
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x10,0x70 }, 98);
+                    //left ninja tool
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x8,0x78 }, 99);
+                    //bottom ninja tool
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x74 }, 81);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0xB0,0x48,0x60,0x8,0x10,0x10,0x74 }, 80);
+
+                
+                
+                
+                
+                
+                
                 }
                 hackIsActivated = false;
             }
         }
     }
-
     return CallNextHookEx(hKeyboardHook, nCode, wParam, lParam);
 }
 void listenforKey() {

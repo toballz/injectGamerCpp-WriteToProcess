@@ -64,4 +64,10 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="hackCode.xt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="HowTo.txt" />
+  </ItemGroup>
 </Project>

@@ -68,10 +68,6 @@ uintptr_t FindDMAAddy(HANDLE hProc, uintptr_t ptr, std::vector<unsigned int> off
 
 int writeToMemory4(wchar_t* fileNameEXE,int baseAddress, std::vector<unsigned int> offsets,int dataToWrite) {
     DWORD procId = FindProcessId(fileNameEXE);
-    // const wchar_t* fileNameEXE = L"NSUNS4.exe";
-    // int baseAddress = 0x0161C940;
-    // std::vector<unsigned int> offsets = { 0x40,0x10,0x0,0x0,0x7C };
-    // int dataToWrite = 62;
     //************************************************************
     //Getmodulebaseaddress
     uintptr_t moduleBase = GetModuleBaseAddress(procId, fileNameEXE);

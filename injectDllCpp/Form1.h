@@ -136,15 +136,13 @@ namespace CppCLRWinFormsProject {
 		//***********
 
 		private: System::Void inject_Click(System::Object^ sender, System::EventArgs^ e){
-			
  				int errCode = injectDllActivate();
 				if (errCode < 0) {
 					MessageBox::Show(err_list(errCode),
 						"Check",
 						MessageBoxButtons::OK,
 						MessageBoxIcon::Information);
-				}
-				else {
+				}else {
 					txtActivated->Text = "Hack activated.";
 					txtActivated->BackColor = BackColor.ForestGreen;
 					inject->Enabled = false;
