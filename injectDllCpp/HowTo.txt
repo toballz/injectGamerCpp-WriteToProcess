@@ -2,3 +2,4 @@
 click:
 	F4: to activate activate code
 	1:  increase all ninja tool to 99
+	2:	unlimited chakra, subtitusion to 4 (press again to topup 4 more), health to 100 (press again to topup 100)

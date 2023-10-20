@@ -120,6 +120,8 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x40,0x60,0x0,0x40 }, 3321.11f);
                     //subtitusion
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x48}, 100.0f);
+                    //health
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x38 }, 100.0f);
                 }
                 hackIsActivated = false;
             }
