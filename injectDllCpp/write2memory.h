@@ -11,6 +11,7 @@
 /// <param name="dataToWrite">72</param>
 /// <returns></returns>
 int writeToMemory4(wchar_t* fileNameEXE, int baseAddress, std::vector<unsigned int> offsets, int dataToWrite);
+int writeToMemory4(wchar_t* fileNameEXE, int baseAddress, std::vector<unsigned int> offsets, float dataToWrite);
 int FindProcessId(const wchar_t* procName);
 
 #endif

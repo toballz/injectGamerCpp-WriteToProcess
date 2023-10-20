@@ -92,7 +92,7 @@ int injectDllActivate() {
 //
 bool hackIsActivated;
 HHOOK hKeyboardHook;
-wchar_t* _appnameExe_input = L"NSUNS4.exe";
+wchar_t* _appnameExe_input = (wchar_t*)processNameEXE;
 int _baseAddress = 0x0161C940;
 LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
     if (nCode >= 0) {
@@ -100,7 +100,6 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
             KBDLLHOOKSTRUCT* kb = (KBDLLHOOKSTRUCT*)lParam;
             if (!hackIsActivated) {
                 if (kb->vkCode == VK_F4) {
-                    OutputDebugString(L"Cheat Activated :)");
                     hackIsActivated = true;
                 }
             }
@@ -115,13 +114,12 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                     //bottom ninja tool
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x74 }, 81);//real
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0xB0,0x48,0x60,0x8,0x10,0x10,0x74 }, 80);
-
-                
-                
-                
-                
-                
-                
+                }else if (kb->vkCode == '2') {
+                    //chakra
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x8,0x8,0x0,0x40 }, 4122.23f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x40,0x60,0x0,0x40 }, 3321.11f);
+                    //subtitusion
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x48}, 100.0f);
                 }
                 hackIsActivated = false;
             }

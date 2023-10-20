@@ -45,6 +45,16 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ inject;
 	private: System::Windows::Forms::Label^ txtActivated;
 	private: System::Windows::Forms::Label^ leaveappopen;
+	private: System::Windows::Forms::Panel^ injectPanel;
+	private: System::Windows::Forms::Panel^ licenceKeyPanel;
+	private: System::Windows::Forms::TextBox^ licenceKeyTextInput;
+	private: System::Windows::Forms::Button^ licenceKeyVerifyButton;
+
+
+	private: System::Windows::Forms::Label^ label1;
+
+
+
 
 
 
@@ -71,12 +81,19 @@ namespace CppCLRWinFormsProject {
 			this->inject = (gcnew System::Windows::Forms::Button());
 			this->txtActivated = (gcnew System::Windows::Forms::Label());
 			this->leaveappopen = (gcnew System::Windows::Forms::Label());
+			this->injectPanel = (gcnew System::Windows::Forms::Panel());
+			this->licenceKeyPanel = (gcnew System::Windows::Forms::Panel());
+			this->licenceKeyTextInput = (gcnew System::Windows::Forms::TextBox());
+			this->licenceKeyVerifyButton = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->injectPanel->SuspendLayout();
+			this->licenceKeyPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// inject
 			// 
 			this->inject->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->inject->Location = System::Drawing::Point(83, 153);
+			this->inject->Location = System::Drawing::Point(143, 179);
 			this->inject->Name = L"inject";
 			this->inject->Size = System::Drawing::Size(110, 50);
 			this->inject->TabIndex = 0;
@@ -87,7 +104,7 @@ namespace CppCLRWinFormsProject {
 			// txtActivated
 			// 
 			this->txtActivated->AutoSize = true;
-			this->txtActivated->Location = System::Drawing::Point(68, 71);
+			this->txtActivated->Location = System::Drawing::Point(125, 56);
 			this->txtActivated->Name = L"txtActivated";
 			this->txtActivated->Padding = System::Windows::Forms::Padding(15);
 			this->txtActivated->Size = System::Drawing::Size(142, 46);
@@ -97,26 +114,81 @@ namespace CppCLRWinFormsProject {
 			// leaveappopen
 			// 
 			this->leaveappopen->AutoSize = true;
-			this->leaveappopen->Location = System::Drawing::Point(64, 126);
+			this->leaveappopen->Location = System::Drawing::Point(125, 127);
 			this->leaveappopen->Name = L"leaveappopen";
 			this->leaveappopen->Size = System::Drawing::Size(0, 16);
 			this->leaveappopen->TabIndex = 2;
+			// 
+			// injectPanel
+			// 
+			this->injectPanel->Controls->Add(this->licenceKeyPanel);
+			this->injectPanel->Controls->Add(this->leaveappopen);
+			this->injectPanel->Controls->Add(this->txtActivated);
+			this->injectPanel->Controls->Add(this->inject);
+			this->injectPanel->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->injectPanel->Location = System::Drawing::Point(0, 0);
+			this->injectPanel->Name = L"injectPanel";
+			this->injectPanel->Size = System::Drawing::Size(382, 253);
+			this->injectPanel->TabIndex = 3;
+			// 
+			// licenceKeyPanel
+			// 
+			this->licenceKeyPanel->Controls->Add(this->licenceKeyTextInput);
+			this->licenceKeyPanel->Controls->Add(this->licenceKeyVerifyButton);
+			this->licenceKeyPanel->Controls->Add(this->label1);
+			this->licenceKeyPanel->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->licenceKeyPanel->Location = System::Drawing::Point(0, 0);
+			this->licenceKeyPanel->Name = L"licenceKeyPanel";
+			this->licenceKeyPanel->Size = System::Drawing::Size(382, 253);
+			this->licenceKeyPanel->TabIndex = 1;
+			// 
+			// licenceKeyTextInput
+			// 
+			this->licenceKeyTextInput->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->licenceKeyTextInput->Location = System::Drawing::Point(12, 127);
+			this->licenceKeyTextInput->MaxLength = 55;
+			this->licenceKeyTextInput->Multiline = true;
+			this->licenceKeyTextInput->Name = L"licenceKeyTextInput";
+			this->licenceKeyTextInput->Size = System::Drawing::Size(358, 56);
+			this->licenceKeyTextInput->TabIndex = 7;
+			// 
+			// licenceKeyVerifyButton
+			// 
+			this->licenceKeyVerifyButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->licenceKeyVerifyButton->Location = System::Drawing::Point(14, 189);
+			this->licenceKeyVerifyButton->Name = L"licenceKeyVerifyButton";
+			this->licenceKeyVerifyButton->Size = System::Drawing::Size(358, 57);
+			this->licenceKeyVerifyButton->TabIndex = 6;
+			this->licenceKeyVerifyButton->Text = L"Verify licence Key";
+			this->licenceKeyVerifyButton->UseVisualStyleBackColor = true;
+			this->licenceKeyVerifyButton->Click += gcnew System::EventHandler(this, &Form1::licenceKeyVerifyButton_Click);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(121, 77);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(154, 16);
+			this->label1->TabIndex = 4;
+			this->label1->Text = L"Type/Paste Licence Key";
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(282, 253);
-			this->Controls->Add(this->leaveappopen);
-			this->Controls->Add(this->txtActivated);
-			this->Controls->Add(this->inject);
+			this->ClientSize = System::Drawing::Size(382, 253);
+			this->Controls->Add(this->injectPanel);
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(300, 300);
-			this->MinimumSize = System::Drawing::Size(300, 300);
+			this->MaximumSize = System::Drawing::Size(400, 300);
+			this->MinimumSize = System::Drawing::Size(400, 300);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
+			this->injectPanel->ResumeLayout(false);
+			this->injectPanel->PerformLayout();
+			this->licenceKeyPanel->ResumeLayout(false);
+			this->licenceKeyPanel->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -152,5 +224,11 @@ namespace CppCLRWinFormsProject {
 				}
 			 
 		}
-	};
+	private: System::Void licenceKeyVerifyButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (licenceKeyTextInput->Text->Length > 0) {
+			licenceKeyPanel->Visible = false;
+			injectPanel->Visible = true;
+		}
+	}
+};
 }

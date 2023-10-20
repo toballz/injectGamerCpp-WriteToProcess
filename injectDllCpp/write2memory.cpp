@@ -91,3 +91,29 @@ int writeToMemory4(wchar_t* fileNameEXE,int baseAddress, std::vector<unsigned in
     CloseHandle(hProcess);
     return 0;
 }
+int writeToMemory4(wchar_t* fileNameEXE, int baseAddress, std::vector<unsigned int> offsets, float dataToWrite) {
+    DWORD procId = FindProcessId(fileNameEXE);
+    //************************************************************
+    //Getmodulebaseaddress
+    uintptr_t moduleBase = GetModuleBaseAddress(procId, fileNameEXE);
+    //Get Handle to Process
+    HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, NULL, procId);
+    //Resolve base address of the pointer chain
+    uintptr_t dynamicPtrBaseAddr = moduleBase + baseAddress;
+    //Resolve the pointer chain
+    uintptr_t addr = FindDMAAddy(hProcess, dynamicPtrBaseAddr, offsets);
+
+
+    //************
+    // Write data to the calculated address
+    SIZE_T bytesWritten;
+    if (WriteProcessMemory(hProcess, (LPVOID)addr, &dataToWrite, sizeof(dataToWrite), &bytesWritten)) {
+        std::cout << "Data written to process memory" << std::endl;
+    }
+    else {
+        std::cout << "Failed to write data to process memory. Error code: " << GetLastError() << std::endl;
+    }
+
+    CloseHandle(hProcess);
+    return 0;
+}
