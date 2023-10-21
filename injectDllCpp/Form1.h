@@ -1,5 +1,6 @@
 #pragma once
 #include "injector.h" 
+#include "otherFunctions.h" 
 
 namespace CppCLRWinFormsProject {
 
@@ -61,6 +62,7 @@ namespace CppCLRWinFormsProject {
 
 
 
+
 	protected:
 
 	protected:
@@ -93,9 +95,9 @@ namespace CppCLRWinFormsProject {
 			// inject
 			// 
 			this->inject->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->inject->Location = System::Drawing::Point(143, 179);
+			this->inject->Location = System::Drawing::Point(101, 173);
 			this->inject->Name = L"inject";
-			this->inject->Size = System::Drawing::Size(110, 50);
+			this->inject->Size = System::Drawing::Size(375, 58);
 			this->inject->TabIndex = 0;
 			this->inject->Text = L"Inject";
 			this->inject->UseVisualStyleBackColor = true;
@@ -104,7 +106,8 @@ namespace CppCLRWinFormsProject {
 			// txtActivated
 			// 
 			this->txtActivated->AutoSize = true;
-			this->txtActivated->Location = System::Drawing::Point(125, 56);
+			this->txtActivated->ForeColor = System::Drawing::Color::MistyRose;
+			this->txtActivated->Location = System::Drawing::Point(212, 58);
 			this->txtActivated->Name = L"txtActivated";
 			this->txtActivated->Padding = System::Windows::Forms::Padding(15);
 			this->txtActivated->Size = System::Drawing::Size(142, 46);
@@ -114,7 +117,8 @@ namespace CppCLRWinFormsProject {
 			// leaveappopen
 			// 
 			this->leaveappopen->AutoSize = true;
-			this->leaveappopen->Location = System::Drawing::Point(125, 127);
+			this->leaveappopen->ForeColor = System::Drawing::Color::MistyRose;
+			this->leaveappopen->Location = System::Drawing::Point(172, 142);
 			this->leaveappopen->Name = L"leaveappopen";
 			this->leaveappopen->Size = System::Drawing::Size(0, 16);
 			this->leaveappopen->TabIndex = 2;
@@ -128,7 +132,7 @@ namespace CppCLRWinFormsProject {
 			this->injectPanel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->injectPanel->Location = System::Drawing::Point(0, 0);
 			this->injectPanel->Name = L"injectPanel";
-			this->injectPanel->Size = System::Drawing::Size(382, 253);
+			this->injectPanel->Size = System::Drawing::Size(572, 253);
 			this->injectPanel->TabIndex = 3;
 			// 
 			// licenceKeyPanel
@@ -139,35 +143,37 @@ namespace CppCLRWinFormsProject {
 			this->licenceKeyPanel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->licenceKeyPanel->Location = System::Drawing::Point(0, 0);
 			this->licenceKeyPanel->Name = L"licenceKeyPanel";
-			this->licenceKeyPanel->Size = System::Drawing::Size(382, 253);
+			this->licenceKeyPanel->Size = System::Drawing::Size(572, 253);
 			this->licenceKeyPanel->TabIndex = 1;
 			// 
 			// licenceKeyTextInput
 			// 
-			this->licenceKeyTextInput->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->licenceKeyTextInput->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 13.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->licenceKeyTextInput->Location = System::Drawing::Point(12, 127);
-			this->licenceKeyTextInput->MaxLength = 55;
+			this->licenceKeyTextInput->Location = System::Drawing::Point(12, 142);
+			this->licenceKeyTextInput->MaxLength = 33;
 			this->licenceKeyTextInput->Multiline = true;
 			this->licenceKeyTextInput->Name = L"licenceKeyTextInput";
-			this->licenceKeyTextInput->Size = System::Drawing::Size(358, 56);
+			this->licenceKeyTextInput->Size = System::Drawing::Size(548, 41);
 			this->licenceKeyTextInput->TabIndex = 7;
 			// 
 			// licenceKeyVerifyButton
 			// 
+			this->licenceKeyVerifyButton->BackColor = System::Drawing::Color::LawnGreen;
 			this->licenceKeyVerifyButton->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->licenceKeyVerifyButton->Location = System::Drawing::Point(14, 189);
+			this->licenceKeyVerifyButton->Location = System::Drawing::Point(51, 189);
 			this->licenceKeyVerifyButton->Name = L"licenceKeyVerifyButton";
-			this->licenceKeyVerifyButton->Size = System::Drawing::Size(358, 57);
+			this->licenceKeyVerifyButton->Size = System::Drawing::Size(463, 57);
 			this->licenceKeyVerifyButton->TabIndex = 6;
 			this->licenceKeyVerifyButton->Text = L"Verify licence Key";
-			this->licenceKeyVerifyButton->UseVisualStyleBackColor = true;
+			this->licenceKeyVerifyButton->UseVisualStyleBackColor = false;
 			this->licenceKeyVerifyButton->Click += gcnew System::EventHandler(this, &Form1::licenceKeyVerifyButton_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(121, 77);
+			this->label1->ForeColor = System::Drawing::Color::MistyRose;
+			this->label1->Location = System::Drawing::Point(215, 86);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(154, 16);
 			this->label1->TabIndex = 4;
@@ -177,13 +183,19 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(382, 253);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->ClientSize = System::Drawing::Size(572, 253);
 			this->Controls->Add(this->injectPanel);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(400, 300);
-			this->MinimumSize = System::Drawing::Size(400, 300);
+			this->MaximumSize = System::Drawing::Size(590, 300);
+			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(590, 300);
 			this->Name = L"Form1";
+			this->ShowIcon = false;
 			this->Text = L"Form1";
+			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->injectPanel->ResumeLayout(false);
 			this->injectPanel->PerformLayout();
 			this->licenceKeyPanel->ResumeLayout(false);
@@ -228,7 +240,17 @@ namespace CppCLRWinFormsProject {
 		if (licenceKeyTextInput->Text->Length > 0) {
 			licenceKeyPanel->Visible = false;
 			injectPanel->Visible = true;
+			LocalStorage::store("Licence", licenceKeyTextInput->Text);
 		}
+		 
 	}
+	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
+		if (LocalStorage::get("Licence").size() > 0) {
+
+			licenceKeyPanel->Visible = false;
+			injectPanel->Visible = true;
+		}
+
+	} 
 };
 }

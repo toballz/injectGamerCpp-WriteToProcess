@@ -134,6 +134,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="injector.h" />
+    <ClInclude Include="otherFunctions.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="write2memory.h" />
@@ -143,6 +144,7 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="injector.cpp" />
+    <ClCompile Include="otherFunctions.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

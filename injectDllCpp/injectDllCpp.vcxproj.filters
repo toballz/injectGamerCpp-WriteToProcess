@@ -38,6 +38,9 @@
     <ClInclude Include="write2memory.h">
       <Filter>Source Files\func</Filter>
     </ClInclude>
+    <ClInclude Include="otherFunctions.h">
+      <Filter>Source Files\func</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -56,6 +59,9 @@
       <Filter>Source Files\func</Filter>
     </ClCompile>
     <ClCompile Include="write2memory.cpp">
+      <Filter>Source Files\func</Filter>
+    </ClCompile>
+    <ClCompile Include="otherFunctions.cpp">
       <Filter>Source Files\func</Filter>
     </ClCompile>
   </ItemGroup>
