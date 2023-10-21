@@ -12,6 +12,10 @@
 
 AppToolStatic AppTool;
 
+std::string escapeString = "::: ";
+std::string AppDataRoaming = std::string(getenv("APPDATA")) + "\\" + AppTool.name;
+const char* AppDataRoamingPath = AppDataRoaming.c_str();
+std::string storageFile = AppDataRoaming + "\\storage.dwf";
 std::string stringToBinary(const std::string& input) {
     std::string binaryString = "";
     for (char c : input) {
@@ -28,33 +32,36 @@ std::string binaryToString(const std::string& binary) {
     }
     return result;
 }
-std::string escapeString ="::: ";
-std::string AppDataRoaming = std::string(getenv("APPDATA")) + "\\" + AppTool.name;
-const char* AppDataRoamingPath = AppDataRoaming.c_str();
-std::string storageFile = AppDataRoaming + "\\storage.dwf";
-
-
-
-bool LocalStorage::store(std::string IndexbyteToStore, System::String^ byteToStoreSystemString) {
-  
-    std::string byteToStore = msclr::interop::marshal_as<std::string>(byteToStoreSystemString);
-    
+int initializeFilesAndFolder() {
+    //folder **************
     DWORD AppDataRoamingPathResult = GetFileAttributesA(AppDataRoamingPath);
     if (AppDataRoamingPathResult == INVALID_FILE_ATTRIBUTES && GetLastError() == ERROR_FILE_NOT_FOUND) {
         // The directory doesn't exist, so create it.
         if (CreateDirectoryA(AppDataRoamingPath, NULL)) {
             OutputDebugStringA("Folder created");
-        }
-        else {
+        } else {
             OutputDebugStringA("Failed to create folder");
             return false;
         }
-    }
-    else if (!(AppDataRoamingPathResult & FILE_ATTRIBUTE_DIRECTORY)) {
+    } else if (!(AppDataRoamingPathResult & FILE_ATTRIBUTE_DIRECTORY)) {
         OutputDebugStringA("Invalid directory");
         return false;
     }
+    //file ***************
+    //output mode and if !exist
+    std::ofstream file(storageFile, std::ios::app);
+    // Check successfully opened
+    if (file.good()) {
+        //success 
+        file.close();
+    }
+}
 
+
+
+bool LocalStorage::store(std::string IndexbyteToStore, System::String^ byteToStoreSystemString) {
+    initializeFilesAndFolder();
+    std::string byteToStore = msclr::interop::marshal_as<std::string>(byteToStoreSystemString);
     // Open the file for reading
     std::ifstream file(storageFile);
     if (!file.is_open()) {
@@ -113,6 +120,7 @@ bool LocalStorage::store(std::string IndexbyteToStore, System::String^ byteToSto
 }
 
 std::string LocalStorage::get(std::string IndexbyteToGet) {
+    initializeFilesAndFolder();
     std::string foundLineText;
     std::ifstream inputFile(storageFile);
     if (!inputFile.is_open()) {
