@@ -32,7 +32,7 @@ std::string binaryToString(const std::string& binary) {
     }
     return result;
 }
-int initializeFilesAndFolder() {
+int initializeFilesAndFolder(){
     //folder **************
     DWORD AppDataRoamingPathResult = GetFileAttributesA(AppDataRoamingPath);
     if (AppDataRoamingPathResult == INVALID_FILE_ATTRIBUTES && GetLastError() == ERROR_FILE_NOT_FOUND) {
@@ -118,7 +118,6 @@ bool LocalStorage::store(std::string IndexbyteToStore, System::String^ byteToSto
 
     return true;
 }
-
 std::string LocalStorage::get(std::string IndexbyteToGet) {
     initializeFilesAndFolder();
     std::string foundLineText;

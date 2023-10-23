@@ -45,7 +45,7 @@ namespace CppCLRWinFormsProject {
 		}
 	private: System::Windows::Forms::Button^ inject;
 	private: System::Windows::Forms::Label^ txtActivated;
-	private: System::Windows::Forms::Label^ leaveappopen;
+
 	private: System::Windows::Forms::Panel^ injectPanel;
 	private: System::Windows::Forms::Panel^ licenceKeyPanel;
 	private: System::Windows::Forms::TextBox^ licenceKeyTextInput;
@@ -53,6 +53,10 @@ namespace CppCLRWinFormsProject {
 
 
 	private: System::Windows::Forms::Label^ label1;
+
+	private: System::Windows::Forms::ComboBox^ playerSelectOption;
+
+
 
 
 
@@ -82,8 +86,8 @@ namespace CppCLRWinFormsProject {
 		{
 			this->inject = (gcnew System::Windows::Forms::Button());
 			this->txtActivated = (gcnew System::Windows::Forms::Label());
-			this->leaveappopen = (gcnew System::Windows::Forms::Label());
 			this->injectPanel = (gcnew System::Windows::Forms::Panel());
+			this->playerSelectOption = (gcnew System::Windows::Forms::ComboBox());
 			this->licenceKeyPanel = (gcnew System::Windows::Forms::Panel());
 			this->licenceKeyTextInput = (gcnew System::Windows::Forms::TextBox());
 			this->licenceKeyVerifyButton = (gcnew System::Windows::Forms::Button());
@@ -114,19 +118,10 @@ namespace CppCLRWinFormsProject {
 			this->txtActivated->TabIndex = 1;
 			this->txtActivated->Text = L"Click inject to start";
 			// 
-			// leaveappopen
-			// 
-			this->leaveappopen->AutoSize = true;
-			this->leaveappopen->ForeColor = System::Drawing::Color::MistyRose;
-			this->leaveappopen->Location = System::Drawing::Point(172, 142);
-			this->leaveappopen->Name = L"leaveappopen";
-			this->leaveappopen->Size = System::Drawing::Size(0, 16);
-			this->leaveappopen->TabIndex = 2;
-			// 
 			// injectPanel
 			// 
 			this->injectPanel->Controls->Add(this->licenceKeyPanel);
-			this->injectPanel->Controls->Add(this->leaveappopen);
+			this->injectPanel->Controls->Add(this->playerSelectOption);
 			this->injectPanel->Controls->Add(this->txtActivated);
 			this->injectPanel->Controls->Add(this->inject);
 			this->injectPanel->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -134,6 +129,19 @@ namespace CppCLRWinFormsProject {
 			this->injectPanel->Name = L"injectPanel";
 			this->injectPanel->Size = System::Drawing::Size(572, 253);
 			this->injectPanel->TabIndex = 3;
+			// 
+			// playerSelectOption
+			// 
+			this->playerSelectOption->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->playerSelectOption->FormattingEnabled = true;
+			this->playerSelectOption->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
+				L"Select what player console you are.",
+					L"Player 1", L"Player 2"
+			});
+			this->playerSelectOption->Location = System::Drawing::Point(101, 143);
+			this->playerSelectOption->Name = L"playerSelectOption";
+			this->playerSelectOption->Size = System::Drawing::Size(375, 24);
+			this->playerSelectOption->TabIndex = 9;
 			// 
 			// licenceKeyPanel
 			// 
@@ -227,10 +235,9 @@ namespace CppCLRWinFormsProject {
 						MessageBoxButtons::OK,
 						MessageBoxIcon::Information);
 				}else {
-					txtActivated->Text = "Hack activated.";
+					txtActivated->Text = "Hack activated.\nLeave this box open ;)";
 					txtActivated->BackColor = BackColor.ForestGreen;
-					inject->Enabled = false;
-					leaveappopen->Text = "Leave this box open ;)";
+					inject->Enabled = false; 
 
 					listenforKey();
 				}
@@ -245,6 +252,7 @@ namespace CppCLRWinFormsProject {
 		 
 	}
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
+		playerSelectOption->SelectedIndex = 0;
 		if (LocalStorage::get("Licence").size() > 0) {
 
 			licenceKeyPanel->Visible = false;

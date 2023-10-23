@@ -106,11 +106,17 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
             else {
                 if (kb->vkCode == '1'){
                     //right ninja tool
-                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x7C },97);
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x7C },67);
                     //top ninja tool
-                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x10,0x70 }, 98);
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x10,0x70 }, 78);
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x8,0x8,0x0,0x70 }, 77);
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x8,0x0,0x70 }, 76);//
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x70 }, 75);//real
                     //left ninja tool
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x8,0x78 }, 99);
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x78 }, 98);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x20,0x10,0x10,0x0,0x78 }, 97);
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x20,0x10,0x0,0x0,0x78 }, 96);
                     //bottom ninja tool
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x74 }, 81);//real
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0xB0,0x48,0x60,0x8,0x10,0x10,0x74 }, 80);
@@ -122,6 +128,22 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x48}, 100.0f);
                     //health
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x0,0x38 }, 100.0f);
+                    //ecrete techniq
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x6C }, 100.0f);
+                    //first helper
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x8,0x54 }, 5000.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x8,0x54 }, 6000.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x0,0x8,0x54 }, 7000.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x10,0x8,0x54 }, 9000.0f);//real
+                    //second helper
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x10,0x54 }, 5000.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x10,0x54 }, 6000.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x10,0x10,0x54 }, 7000.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x10,0x10,0x54 }, 9000.0f);//real
+                }else if (kb->vkCode == '3') {
+                    //kill enemy instantly
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x10,0x90,0x38 }, 50.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x90,0x38 }, 0.0f);//real
                 }
                 hackIsActivated = false;
             }
