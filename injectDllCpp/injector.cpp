@@ -5,6 +5,7 @@
 #include <tlhelp32.h>
 #include <vector>
 #include "write2memory.h"
+#include "externaloverlay.h"
 
 
 char* WCharToChar(const wchar_t* wideString) {
@@ -36,13 +37,15 @@ DWORD getProcessIDByName(const char* processName) {
 } 
 //
 // 
-/*char _evilDLL[] = "C:\\Users\\tobal\\source\\repos\\Dll1\\x64\\Debug\\Dll1.dll";*/
 const wchar_t*  processNameEXE =  L"NSUNS4.exe";
 int _pidd;
 int injectDllActivate() {
     if (FindProcessId(processNameEXE) == 0){return -112;}
     return 0;
+    
     /*
+    const char* processNameEXE =  "NSUNS4.exe";
+     char _evilDLL[] = "C:\\Users\\tobal\\source\\repos\\Dll1\\x64\\Debug\\Dll1.dll"; 
     HANDLE ph; // process handle
     HANDLE rt; // remote thread
     LPVOID rb; // remote buffer
@@ -78,17 +81,14 @@ int injectDllActivate() {
     CloseHandle(ph);
 
     listenforKey();
-    return 0;
-    */
+    return 0;*/
+   
 }
 
 
 //#########
 // F4 to activate cheat
 // 1 top ninja tool
-// 2 right ninja too001l
-// 3 bottom ninja tool
-// 4 left ninja tool
 //
 bool hackIsActivated;
 HHOOK hKeyboardHook;
@@ -141,9 +141,26 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x10,0x10,0x54 }, 7000.0f);//real
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x10,0x10,0x54 }, 9000.0f);//real
                 }else if (kb->vkCode == '3') {
-                    //kill enemy instantly
+                    //2p kill enemy instantly 1st
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x10,0x90,0x38 }, 50.0f);//real
                     writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x90,0x38 }, 0.0f);//real
+                    //2p kill enemy instantly 1nd
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x40,0x60,0x98,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x98,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0xA0,0x8,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x98 ,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x20,0x98 ,0x38 }, 0.0f);//real
+                    //2p kill enemy instantly 2nd
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x40,0x60,0x98,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0x98,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0xA0,0x8,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x98 ,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x20,0x98 ,0x38 }, 0.0f);//real
+                    //2p kill enemy instantly 3rd
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x98,0x10,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x20,0xA0, 0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x88,0x10 ,0x38 }, 0.0f);//real
+                    writeToMemory4(_appnameExe_input, _baseAddress, { 0x40,0x0,0x0,0xA0 ,0x38 }, 0.0f);//real
                 }
                 hackIsActivated = false;
             }

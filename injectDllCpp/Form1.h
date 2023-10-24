@@ -87,11 +87,11 @@ namespace CppCLRWinFormsProject {
 			this->inject = (gcnew System::Windows::Forms::Button());
 			this->txtActivated = (gcnew System::Windows::Forms::Label());
 			this->injectPanel = (gcnew System::Windows::Forms::Panel());
-			this->playerSelectOption = (gcnew System::Windows::Forms::ComboBox());
 			this->licenceKeyPanel = (gcnew System::Windows::Forms::Panel());
 			this->licenceKeyTextInput = (gcnew System::Windows::Forms::TextBox());
 			this->licenceKeyVerifyButton = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->playerSelectOption = (gcnew System::Windows::Forms::ComboBox());
 			this->injectPanel->SuspendLayout();
 			this->licenceKeyPanel->SuspendLayout();
 			this->SuspendLayout();
@@ -129,19 +129,6 @@ namespace CppCLRWinFormsProject {
 			this->injectPanel->Name = L"injectPanel";
 			this->injectPanel->Size = System::Drawing::Size(572, 253);
 			this->injectPanel->TabIndex = 3;
-			// 
-			// playerSelectOption
-			// 
-			this->playerSelectOption->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
-			this->playerSelectOption->FormattingEnabled = true;
-			this->playerSelectOption->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
-				L"Select what player console you are.",
-					L"Player 1", L"Player 2"
-			});
-			this->playerSelectOption->Location = System::Drawing::Point(101, 143);
-			this->playerSelectOption->Name = L"playerSelectOption";
-			this->playerSelectOption->Size = System::Drawing::Size(375, 24);
-			this->playerSelectOption->TabIndex = 9;
 			// 
 			// licenceKeyPanel
 			// 
@@ -187,6 +174,19 @@ namespace CppCLRWinFormsProject {
 			this->label1->TabIndex = 4;
 			this->label1->Text = L"Type/Paste Licence Key";
 			// 
+			// playerSelectOption
+			// 
+			this->playerSelectOption->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->playerSelectOption->FormattingEnabled = true;
+			this->playerSelectOption->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
+				L"Select what player console you are.",
+					L"Player 1", L"Player 2"
+			});
+			this->playerSelectOption->Location = System::Drawing::Point(101, 143);
+			this->playerSelectOption->Name = L"playerSelectOption";
+			this->playerSelectOption->Size = System::Drawing::Size(375, 24);
+			this->playerSelectOption->TabIndex = 9;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -202,6 +202,7 @@ namespace CppCLRWinFormsProject {
 			this->MinimumSize = System::Drawing::Size(590, 300);
 			this->Name = L"Form1";
 			this->ShowIcon = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Form1";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->injectPanel->ResumeLayout(false);

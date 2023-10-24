@@ -143,3 +143,11 @@ std::string LocalStorage::get(std::string IndexbyteToGet) {
     catch (const std::exception& e) { }
     return token;
 }
+
+
+LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+    switch (msg) {
+        // Handle your custom message handlers and other cases here
+    }
+    return DefWindowProc(hwnd, msg, wParam, lParam);
+}

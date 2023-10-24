@@ -12,5 +12,5 @@ public:
 class AppToolStatic {
 public:
          std::string name = "injectCppHack";
-}; 
+};
 #endif
