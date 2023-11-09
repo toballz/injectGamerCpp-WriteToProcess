@@ -44,13 +44,13 @@ int injectDllActivate() {
     return 0;
     
     /*
-    const char* processNameEXE =  "NSUNS4.exe";
-     char _evilDLL[] = "C:\\Users\\tobal\\source\\repos\\Dll1\\x64\\Debug\\Dll1.dll"; 
+    const char* processNameEXExxxxx =  "NFS13.exe";
+     char _evilDLL[] = "C:\\Users\\tobal\\source\\repos\\Dll2\\x64\\Debug\\Dll2.dll"; 
     HANDLE ph; // process handle
     HANDLE rt; // remote thread
     LPVOID rb; // remote buffer
     //*********
-      _pidd = getProcessIDByName(processNameEXE);
+      _pidd = getProcessIDByName(processNameEXExxxxx);
     unsigned int evilLen = sizeof(_evilDLL) + 1;
     //*********
     //*********
@@ -81,7 +81,7 @@ int injectDllActivate() {
     CloseHandle(ph);
 
     listenforKey();
-    return 0;*/
+    return 0;//*/
    
 }
 
